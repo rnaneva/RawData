@@ -7,10 +7,13 @@ After the N lines, you will receive a single line with one of 2 commands "fragil
 
 package ObjectsAndClasses;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public class P02RawData {
+public class P02RawData2 {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         int n = Integer.parseInt(scanner.nextLine());
@@ -33,9 +36,10 @@ public class P02RawData {
             double tyreFourPressure = Double.parseDouble(data[11]);
             int tyreFourAge = Integer.parseInt(data[12]);
 
-            Car car = new Car(model, engineSpeed, enginePower, cargoWeight, cargoType,
-                    tyreOnePressure, tyreOneAge, tyreTwoPressure, tyreTwoAge, tyreThreePressure,
-                    tyreThreeAge, tyreFourPressure, tyreFourAge);
+            Car car = new Car(model, engineSpeed, enginePower, cargoWeight, cargoType, tyreOnePressure, tyreOneAge, tyreTwoPressure, tyreTwoAge, tyreThreePressure,
+                    tyreThreeAge, tyreFourPressure, tyreFourAge );
+
+
             autos.put(model, car);
 
 
@@ -73,12 +77,10 @@ public class P02RawData {
         double tyreFourPressure;
         int tyreFourAge;
 
-
-        public Car(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType, double tyreOnePressure, int tyreOneAge, double tyreTwoPressure, int tyreTwoAge, double tyreThreePressure,
-                   int tyreThreeAge, double tyreFourPressure, int tyreFourAge) {
+        public Car(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType, double tyreOnePressure, int tyreOneAge, double tyreTwoPressure, int tyreTwoAge, double tyreThreePressure, int tyreThreeAge, double tyreFourPressure, int tyreFourAge) {
             this.model = model;
-            this.enginePower = enginePower;
             this.engineSpeed = engineSpeed;
+            this.enginePower = enginePower;
             this.cargoWeight = cargoWeight;
             this.cargoType = cargoType;
             this.tyreOnePressure = tyreOnePressure;
@@ -91,48 +93,148 @@ public class P02RawData {
             this.tyreFourAge = tyreFourAge;
         }
 
-        public String getModel() {
-            return model;
+
+        public static class Engine extends Car {
+            int engineSpeed;
+            int enginePower;
+
+            public Engine(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType, double tyreOnePressure, int tyreOneAge, double tyreTwoPressure, int tyreTwoAge, double tyreThreePressure, int tyreThreeAge, double tyreFourPressure, int tyreFourAge, int engineSpeed1, int enginePower1) {
+                super(model, engineSpeed, enginePower, cargoWeight, cargoType, tyreOnePressure, tyreOneAge, tyreTwoPressure, tyreTwoAge, tyreThreePressure, tyreThreeAge, tyreFourPressure, tyreFourAge);
+                this.engineSpeed = engineSpeed1;
+                this.enginePower = enginePower1;
+            }
+
+            public int getEngineSpeed() {
+                return engineSpeed;
+            }
+
+            public void setEngineSpeed(int engineSpeed) {
+                this.engineSpeed = engineSpeed;
+            }
+
+            public int getEnginePower() {
+                return enginePower;
+            }
+
+            public void setEnginePower(int enginePower) {
+                this.enginePower = enginePower;
+            }
+        }
+        public static class Cargo extends Car {
+            int cargoWeight;
+            String cargoType;
+
+            public Cargo(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType, double tyreOnePressure, int tyreOneAge, double tyreTwoPressure, int tyreTwoAge, double tyreThreePressure, int tyreThreeAge, double tyreFourPressure, int tyreFourAge, int cargoWeight1, String cargoType1) {
+                super(model, engineSpeed, enginePower, cargoWeight, cargoType, tyreOnePressure, tyreOneAge, tyreTwoPressure, tyreTwoAge, tyreThreePressure, tyreThreeAge, tyreFourPressure, tyreFourAge);
+                this.cargoWeight = cargoWeight1;
+                this.cargoType = cargoType1;
+            }
+
+            public int getCargoWeight() {
+                return cargoWeight;
+            }
+
+            public void setCargoWeight(int cargoWeight) {
+                this.cargoWeight = cargoWeight;
+            }
+
+            public String getCargoType() {
+                return cargoType;
+            }
+
+            public void setCargoType(String cargoType) {
+                this.cargoType = cargoType;
+            }
         }
 
-        public void setModel(String model) {
-            this.model = model;
-        }
+        public static class Tyre extends Car {
+            double tyreOnePressure;
+            int tyreOneAge;
+            double tyreTwoPressure;
+            int tyreTwoAge;
+            double tyreThreePressure;
+            int tyreThreeAge;
+            double tyreFourPressure;
+            int tyreFourAge;
 
-        public int getEngineSpeed() {
-            return engineSpeed;
-        }
+            public Tyre(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType, double tyreOnePressure, int tyreOneAge, double tyreTwoPressure, int tyreTwoAge, double tyreThreePressure, int tyreThreeAge, double tyreFourPressure, int tyreFourAge, double tyreOnePressure1, int tyreOneAge1, double tyreTwoPressure1, int tyreTwoAge1, double tyreThreePressure1, int tyreThreeAge1, double tyreFourPressure1, int tyreFourAge1) {
+                super(model, engineSpeed, enginePower, cargoWeight, cargoType, tyreOnePressure, tyreOneAge, tyreTwoPressure, tyreTwoAge, tyreThreePressure, tyreThreeAge, tyreFourPressure, tyreFourAge);
+                this.tyreOnePressure = tyreOnePressure1;
+                this.tyreOneAge = tyreOneAge1;
+                this.tyreTwoPressure = tyreTwoPressure1;
+                this.tyreTwoAge = tyreTwoAge1;
+                this.tyreThreePressure = tyreThreePressure1;
+                this.tyreThreeAge = tyreThreeAge1;
+                this.tyreFourPressure = tyreFourPressure1;
+                this.tyreFourAge = tyreFourAge1;
+            }
 
-        public int getEnginePower() {
-            return enginePower;
-        }
+            public double getTyreOnePressure() {
+                return tyreOnePressure;
+            }
 
-        public void setEngineSpeed(int engineSpeed) {
-            this.engineSpeed = engineSpeed;
-        }
+            public void setTyreOnePressure(double tyreOnePressure) {
+                this.tyreOnePressure = tyreOnePressure;
+            }
 
-        public void setEnginePower(int enginePower) {
-            this.enginePower = enginePower;
-        }
+            public int getTyreOneAge() {
+                return tyreOneAge;
+            }
 
-        public int getCargoWeight() {
-            return cargoWeight;
-        }
+            public void setTyreOneAge(int tyreOneAge) {
+                this.tyreOneAge = tyreOneAge;
+            }
 
-        public String getCargoType() {
-            return cargoType;
-        }
+            public double getTyreTwoPressure() {
+                return tyreTwoPressure;
+            }
 
-        public void setCargoWeight(int cargoWeight) {
-            this.cargoWeight = cargoWeight;
-        }
+            public void setTyreTwoPressure(double tyreTwoPressure) {
+                this.tyreTwoPressure = tyreTwoPressure;
+            }
 
-        public void setCargoType(String cargoType) {
-            this.cargoType = cargoType;
+            public int getTyreTwoAge() {
+                return tyreTwoAge;
+            }
+
+            public void setTyreTwoAge(int tyreTwoAge) {
+                this.tyreTwoAge = tyreTwoAge;
+            }
+
+            public double getTyreThreePressure() {
+                return tyreThreePressure;
+            }
+
+            public void setTyreThreePressure(double tyreThreePressure) {
+                this.tyreThreePressure = tyreThreePressure;
+            }
+
+            public int getTyreThreeAge() {
+                return tyreThreeAge;
+            }
+
+            public void setTyreThreeAge(int tyreThreeAge) {
+                this.tyreThreeAge = tyreThreeAge;
+            }
+
+            public double getTyreFourPressure() {
+                return tyreFourPressure;
+            }
+
+            public void setTyreFourPressure(double tyreFourPressure) {
+                this.tyreFourPressure = tyreFourPressure;
+            }
+
+            public int getTyreFourAge() {
+                return tyreFourAge;
+            }
+
+            public void setTyreFourAge(int tyreFourAge) {
+                this.tyreFourAge = tyreFourAge;
+            }
         }
     }
-
-
 }
+
 
 
