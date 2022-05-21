@@ -1,10 +1,6 @@
 # RawData
-You are the owner of a courier company and want to make a system for tracking your cars and their cargo. Define a class Car that holds information about the model, engine, cargo, and a collection of exactly 4 tires. The engine, cargo, and tire should be separate classes, create a constructor that receives all information about the Car and creates and initializes its inner components (engine, cargo, and tires).
+Define a class Car that holds information about the model, engine, cargo, and a collection of exactly 4 tires. The engine, cargo, and tire should be separate classes, create a constructor that receives all information about the Car and creates and initializes its inner components (engine, cargo, and tires).
 After the N lines, you will receive a single line with one of 2 commands "fragile" or "flamable", if the command is "fragile" print all cars whose Cargo Type is "fragile" with a tire whose pressure is  < 1 if the command is "flamable" print all cars whose Cargo Type is "flamable" and have Engine Power > 250.
-
-
-
-
 package ObjectsAndClasses;
 
 import java.util.LinkedHashMap;
